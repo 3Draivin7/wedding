@@ -1,0 +1,210 @@
+<!-- Добавить шрифту clamp,
+ убрать гапы на заставке, подвинуть все маргинами -->
+
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="./images/favicon.ico" sizes="any">
+  <!--  <link rel="stylesheet" href="./fonts/fonts.css"
+    <link rel="stylesheet" href="./styles/globals.css">
+    <link rel="stylesheet" href="./styles/animation.css">
+    <link rel="stylesheet" href="./styles/style.css">
+    <script src="./scripts/timer.js" defer></script>
+    <script src="./scripts/unlock.js" defer></script>
+    <script src="./scripts/scroll.js" defer></script>  -->
+    <title>Приглашение на свадьбу</title>
+  </head>
+  <body class="page">
+    <div class="splash_desktop">
+      <h1 class="desktop_title">Данная страница отображается только на смартфонах в вертикальной ориентации</h1>
+      <p class="desktop_text upper_text">Для просмотра приглашения</p>
+      <p class="desktop_instruction">отсканируйте QR-код при помощи камеры Вашего телефона</p>
+      <img class="qr_code" src="<%=require('./images/code.png')%>">
+    </div>
+  <div class="mobile">
+    <div class="video-background">
+      <video autoplay loop muted playsinline>
+          <source src="<%=require('./video/background.mp4')%>" type="video/mp4">
+      </video>
+  </div>
+    <div class="splash_content">
+      <div class="overlay_splash"></div>
+        <h1 class="splash_title">Приглашение</h1>
+        <img class="text_invate" src="<%=require('./svg/invate.svg')%>">
+        <button class="open_invate">
+          <img class="background_button close_icon" src="<%=require('./svg/close.svg')%>">
+          <img class="background_button open_icon" src="<%=require('./svg/open.svg')%>"></button>
+        <p class="splash_instruction"><span class="text_up">Разблокируйте</span><span class="text_down">приглашение</span></p>
+        <audio id="SplashAudio" src='./audio/SplashAudio.ogg' preload="auto">
+       <source   src="<%=require('./audio/SplashAudio.ogg')%>">
+        </audio>
+    </div>
+    <main class="content">
+      <section class="header">
+        <h1 class="date">12.09.2025</h1>
+        <img class="logo" src="<%=require('./svg/logo.svg')%>">
+        <p class="scroll">Листайте вниз</p>
+        <img class="arrow" src="<%=require('./svg/arrow.svg')%>" >
+      </section>
+      <div class="overlay_sound">
+        <section class="sound">
+          <p class="sound_instruction"><span>Если музыка Вас отвлекает, её можно</span><span> отключить, нажав на кнопку</span></p>
+            <button class="sound_button" id="playPauseButton">
+              <img class="background_button song_icon" src="<%=require('./svg/song.svg')%>">
+              <img class="background_button mute_icon" src="<%=require('./svg/mute.svg')%>">
+            </button>
+        </section>
+      </div>
+        <section class="invate">
+          <h1 class="invite_title">Дорогие родные и близкие!</h1>
+            <p class="invate_text">Приглашаем Вас разделить с нами радость особенного для нас события и стать частью нашей семейной истории!</p>
+            <p class="invate_text">Совсем скоро состоиться наша <span class="upper_text">свадьба!</span><br>
+            И мы не представляем этот праздник без Вас, близких и дорогих людей.</p>
+        </section>
+        <section class="date_block">
+          <h1 class="date_block_title">Дата</h1>
+          <p class="date_block_text">12 <span class="upper_text">сентября </span>2025</p>
+          <ul class="date_block_calendar">
+            <li class="day">1</li>
+            <li class="day">2</li>
+            <li class="day">3</li>
+            <li class="day">4</li>
+            <li class="day">5</li>
+            <li class="day">6</li>
+            <li class="day">7</li>
+            <li class="day">8</li>
+            <li class="day">9</li>
+            <li class="day">10</li>
+            <li class="day">11</li>
+            <li class="day"><img class="circle_image" src="<%=require('./images/circle.png')%>">12</li>
+            <li class="day">13</li>
+            <li class="day">14</li>
+            <li class="day">15</li>
+            <li class="day">16</li>
+            <li class="day">17</li>
+            <li class="day">18</li>
+            <li class="day">19</li>
+            <li class="day">20</li>
+            <li class="day">21</li>
+            <li class="day">22</li>
+            <li class="day">23</li>
+            <li class="day">24</li>
+            <li class="day">25</li>
+            <li class="day">26</li>
+            <li class="day">27</li>
+            <li class="day">28</li>
+            <li class="day">29</li>
+            <li class="day">30</li>
+          </ul>
+        </section>
+        <section class="location">
+          <h1 class="location_title">Локация</h1>
+          <p class="location_text">Наш праздник пройдет</p>
+          <p class="location_place upper_text">В ресторане<br>"Великан"</p>
+          <p class="location_adress">по адресу:<br>Ивановская область,<br>г. Иваново, ул. Громобоя, 2</p>
+          <a class="location_link upper_text" href="https://yandex.ru/profile/-/CHRdy6JZ" target="_blank">Смотреть адрес на карте</a>
+          <img class="location_image" src="<%=require('./images/location.jpg')%>">
+        </section>
+        <section class="timing">
+          <h1 class="timing_title">Тайминг</h1>
+          <ul class="timing_block">
+
+            <li class="meeting">
+              <img class="image_timing" src="<%=require('./images/flowers.jpg')%>">
+            </li>
+            <li class="meeting_time">
+              <h3 class="timing_time upper_text">12:00 сбор гостей</h3>
+              <p class="timing_text">Встречаемся, знакомимся и настраиваемся на душевную свадьбу</p>
+            </li>
+            <li class="arrow_first">
+              <img class="arrow_timing" src="<%=require('./svg/arrowright.svg')%>">
+            </li>
+
+            <li class="ceremony">
+              <img class="image_timing" src="<%=require('./images/ceremony.jpg')%>">
+            </li>
+            <li class="ceremony_time">
+              <h3 class="timing_time upper_text">12:20 церемония</h3>
+              <p class="timing_text">Вы станете свидетелями того, как мы скажем друг другу "да"</p>
+            </li>
+            <li class="arrow_third">
+              <img class="arrow_timing" src="<%=require('./svg/arrowleft.svg')%>">
+            </li>
+
+            <li class="banquet">
+              <img class="image_timing" src="<%=require('./images/restaurant.jpeg')%>">
+            </li>
+            <li class="banquet_time">
+              <h3 class="timing_time upper_text">17:00 банкет</h3>
+              <p class="timing_text">От души посмеёмся, повеселимся и сделаем этот вечер незабываемым</p>
+            </li>
+            <li class="arrow_fourth">
+              <img class="arrow_timing" src="<%=require('./svg/arrowright.svg')%>">
+            </li>
+
+            <li class="cake">
+              <img class="image_timing" src="<%=require('./images/cake.jpg')%>">
+            </li>
+            <li class="cake_time">
+              <h3 class="timing_time upper_text">21:00 торт</h3>
+              <p class="timing_text">Сладкая традиция, которую мы не можем пройти стороной</p>
+            </li>
+            <li class="arrow_fifth">
+              <img class="arrow_timing" src="<%=require('./svg/arrowleft.svg')%>">
+            </li>
+
+            <li class="end">
+              <img class="image_timing" src="<%=require('./images/end.jfif')%>">
+            </li>
+            <li class="end_time">
+              <h3 class="timing_time upper_text">23:00 окончание мероприятия</h3>
+              <p class="timing_text">Даже такой прекрасный вечер может закончиться</p>
+            </li>
+
+        </ul>
+        </section>
+        <section class="details">
+          <h1 class="details_title">Детали</h1>
+          <h2 class="details_subtitle upper_text">Подарки и цветы</h2>
+          <p class="details_text">Мы будем счастливы видеть Вас на нашей свадьбе! Цветы, конечно, прекрасны, но мы предпочитаем, чтобы деньги, которые вы потратили бы на них, пошли на осуществление нашей мечты. Ваша поддержка будет для нас самым лучшим подарком!</p>
+          <!-- <p class="details_text">Будем признательны за альтернативу букетам в форме бутылочки вина или другого приятного напитка и записки о событии к которому нам приурочить её открытие.</p> -->
+        </section>
+        <section class="group">
+          <h1 class="group_title upper_text">Фото и видео<br><span class="text_decoration">со свадьбы</span></h1>
+          <p class="group_text">Дорогие гости!<br>Мы создали группу в Telegram, где можно будет добавлять фото и видео со свадьбы.</p>
+          <p class="group_text">Давайте поделимся друг с другом счастливыми моментами этого важного дня!</p>
+          <a class="group_link upper_text" href="#" target="_blank">Вступить</a>
+        </section>
+        <section class="timer">
+          <h1 class="timer_title">До свадьбы</h1>
+          <h2 class="timer_subtitle">осталось</h2>
+          <div class="timer_block">
+            <div class="timer_segment">
+              <span class="timer_value" id="days">000</span>
+              <span class="timer_label">дни</span>
+            </div>
+            <div class="timer_segment">
+              <span class="timer_value" id="hours">00</span>
+              <span class="timer_label">часы</span>
+            </div>
+            <div class="timer_segment">
+              <span class="timer_value" id="minutes">00</span>
+              <span class="timer_label">мин</span>
+            </div>
+            <div class="timer_segment">
+              <span class="timer_value not_border" id="seconds">00</span>
+              <span class="timer_label not_margin">сек</span>
+            </div>
+          </div>
+        </section>
+        <section class="waiting_for">
+          <h1 class="waiting_title">Ждём Вас!</h1>
+          <p class="waiting_text upper_text">Искренне ваши,<br> Иван и Анастасия</p>
+        </section>  
+    </main>
+  </div>
+  </body>
+</html>

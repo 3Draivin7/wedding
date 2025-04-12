@@ -1,0 +1,17 @@
+@font-face {
+  font-family: 'Saint Viet';
+  src: url(./SaintViet.woff) format('woff');
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Circe Rounded';
+  src: url(./CirceRounded.woff) format('woff');
+  font-display: swap;
+}
+
+font-face {
+  font-family: 'Lora Variable';
+  src: url(./Lora-VariableFont_wght.woff) format('woff');
+  font-display: swap;
+}

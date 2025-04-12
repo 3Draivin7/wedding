@@ -1,0 +1,732 @@
+.splash_desktop {
+  display: none;
+  background-color: #fdfdfb;
+  font-family: 'Circe Rounded';
+}
+
+.desktop_title {
+  font-weight: lighter;
+  text-align: center;
+  font-size: 0.9rem;
+}
+
+.desktop_text {
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.desktop_instruction {
+  font-size: 1.5rem;
+}
+
+.qr_code {
+  width: 15%;
+  height: auto;
+}
+
+@media (min-width: 640px) {
+  .splash_desktop{
+    display: flex;
+    height: 100vh;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+  }
+
+  .mobile {
+    display: none;
+  }
+
+  .page {
+    max-inline-size: 100vw;
+  }
+}
+
+.video-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden; 
+  z-index: -1;
+  animation: fadeIn 2s ease-in-out forwards;
+}
+
+.video-background video {
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  object-fit: cover;
+}
+
+
+.splash_content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center; 
+  padding-inline: 15px;
+  background-image: url(../images/background_start.jpg);
+  background-size: cover;
+  position: relative;
+  height: 100vh;
+  z-index: 0;
+  opacity: 0;
+  animation: fadeIn 2s ease-in-out forwards;
+}
+
+.splash_content.hidden {
+  animation: fadeOut 1s ease-in-out forwards;
+}
+
+.overlay_splash {
+  position: absolute;
+  top: 0;
+  background-image: linear-gradient(to bottom, rgba(89, 60, 37, 0.35), rgba(255, 255, 255, 0.35));
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+} 
+
+.splash_title {
+  margin-top: clamp(5.313rem, 2.585rem + 13.64vw, 8.125rem);
+  font-family: 'Circe Rounded';
+  text-transform: uppercase;
+  letter-spacing: 5px;
+  font-size: clamp(1.563rem, -0.256rem + 9.09vw, 3.438rem);
+  opacity: 0;
+  animation: textAnim 1s linear forwards;
+  animation-delay: 1s;
+}
+
+.text_invate {
+  margin-top: clamp(0.625rem, 0.019rem + 3.03vw, 1.25rem);
+  width: 100%;
+  height: auto;
+  opacity: 0;
+  animation: textAnim 1s linear forwards;
+  animation-delay: 1s;
+}
+
+.open_invate {
+  position: relative;
+  margin-top: clamp(2.5rem, 1.894rem + 3.03vw, 3.125rem);
+  width: 16%;
+  height: auto;
+  background: none;
+  border: none;
+  opacity: 0;
+  animation: fadeIn 1s linear forwards;
+  animation-delay: 1.5s;
+}
+
+.background_button {
+  width: 100%;
+  height: auto;
+  transition: opacity 0.3s ease-in-out; 
+  opacity: 1;
+}
+
+.close_icon {
+  position: absolute;
+}
+
+.splash_instruction {
+  margin-top: clamp(1.25rem, 0.038rem + 6.06vw, 2.5rem);
+  font-family: 'Circe Rounded';
+  font-size: clamp(0.75rem, -0.038rem + 3.94vw, 1.563rem);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  opacity: 0;
+  animation: textAnim 1s linear forwards;
+  animation-delay: 1.5s;
+}
+
+.content {
+  display: none;
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  padding-inline: 45px;
+  background-image: linear-gradient(to bottom, rgba(89, 60, 37, 0.35), rgba(255, 255, 255, 0.35));
+  opacity: 0;
+  animation: fadeIn 1s linear forwards;
+}
+
+.date {
+  font-family: 'Circe Rounded';
+  font-size: clamp(1.125rem, 5.63vw, 2.25rem);
+  opacity: 0;
+  animation: textAnim 1s linear forwards;
+  animation-delay: 1s;
+}
+
+.logo {
+  margin-block: clamp(4.688rem, -0.464rem + 25.76vw, 10rem);
+  width: 100%;
+  height: auto;
+  opacity: 0;
+  animation: textAnim 1s linear forwards;
+}
+
+.scroll {
+  font-family: 'Circe Rounded';
+  font-size: clamp(0.688rem, 0.021rem + 3.33vw, 1.375rem);
+  opacity: 0;
+  animation: textAnim 1s linear forwards;
+  animation-delay: 1s;
+}
+
+.arrow {
+  width: 4%;
+  margin-top: clamp(1.25rem, 0.644rem + 3.03vw, 1.875rem);
+  opacity: 0;
+  animation: textAnim 1s linear forwards;
+  animation-delay: 1s;
+}
+
+.overlay_sound {
+  padding-top: clamp(4.375rem, 21.88vw, 8.75rem);
+  background-color: rgba(255, 255, 255, 0.35);
+}
+
+.sound {
+  height: clamp(4.375rem, 21.88vw, 8.75rem);
+  font-family: 'Circe Rounded';
+  font-size: clamp(0.625rem, 3.13vw, 1.25rem);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-inline: clamp(0.625rem, 3.13vw, 1.25rem);
+  /* padding-block: clamp(0.625rem, 0.313rem + 1.56vw, 0.938rem); */
+  border-radius: 70px;
+  background-color: rgba(255, 255, 255, 0.55);
+}
+
+.sound_instruction {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-inline: clamp(2.188rem, 10.94vw, 4.375rem);
+}
+
+.sound_button {
+  position: relative;
+  background-color: #ffffff;
+  border: none;
+  border-radius: 50%;
+  width: clamp(2.813rem, 14.06vw, 5.625rem);
+  height: clamp(2.813rem, 14.06vw, 5.625rem);
+}
+
+.fixed {
+  position: fixed;
+  z-index: 99;
+  top: clamp(0.625rem, 3.13vw, 1.25rem);
+  right: clamp(1.25rem, 6.25vw, 2.5rem);
+  opacity: 0.7;
+  transition: opacity 0.5s linear;
+}
+
+.song_icon {
+  display: block;
+}
+
+.mute_icon {
+  display: none;
+}
+
+.invate {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Circe Rounded';
+  text-align: center;
+  gap: clamp(1.875rem, 0.313rem + 7.81vw, 3.438rem);
+  padding-inline: clamp(2.813rem, 14.06vw, 5.625rem);
+  padding-block: clamp(4.688rem, 1.25rem + 17.19vw, 8.125rem);
+  background-color: rgba(255, 255, 255, 0.35);
+}
+
+.invate::after {
+  content: '';
+  width: 45%;
+  border-bottom: 1px solid black;
+  margin-top: clamp(4.375rem, 2.5rem + 9.38vw, 6.25rem);
+}
+
+.invite_title {
+  font-size: clamp(1.25rem, -0.313rem + 7.81vw, 2.813rem);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.invate_text {
+  /* font-size: clamp(1rem, -0.188rem + 5.94vw, 2.188rem); */
+  font-size: clamp(1rem, 5vw, 2rem);
+}
+
+.date_block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(1.875rem, 0.625rem + 6.25vw, 3.125rem);
+  padding-inline: clamp(2.813rem, 14.06vw, 5.625rem);
+  padding-bottom: clamp(4.688rem, 1.25rem + 17.19vw, 8.125rem);
+  background-image: linear-gradient(to bottom,rgba(255,255,255,0.3),rgba(255,255,255,1));
+  font-family: 'Circe Rounded';
+}
+
+.date_block::after {
+  content: '';
+  width: 45%;
+  border-bottom: 1px solid black;
+  margin-top: clamp(4.375rem, 2.5rem + 9.38vw, 6.25rem);
+}
+
+.date_block_title {
+  font-family: 'Saint Viet';
+  font-size: clamp(4.375rem, 0.938rem + 17.19vw, 7.813rem);
+  font-weight: lighter;
+  line-height: 1;
+  margin-top: clamp(0.625rem, -0.938rem + 7.81vw, 2.188rem);
+}
+
+.date_block_text {
+  font-size: clamp(1.375rem, 0.125rem + 6.25vw, 2.625rem);
+}
+
+.upper_text {
+  text-transform: uppercase;
+}
+
+.date_block_calendar {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  row-gap: clamp(0.625rem, -0.313rem + 4.69vw, 1.563rem);
+  column-gap: clamp(0.938rem, 4.69vw, 1.875rem);
+  font-size: clamp(0.938rem, 0.125rem + 4.06vw, 1.75rem);
+}
+
+.day {
+  align-self: center;
+  justify-self: center;
+}
+
+.day:nth-child(12) {
+  position: relative;
+}
+
+.circle_image {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-30%, -35%);
+  scale: 170%;
+  width: 300%;
+  height: auto;
+  opacity: 0;
+  transition: scale 0.5s linear, opacity 0.5s linear;
+}
+
+.appearance {
+  scale: 100%;
+  opacity: 1;
+  transform: translate(-50%, -50%);
+}
+
+.location {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Circe Rounded';
+  text-align: center;
+  gap: clamp(1.875rem, 0.313rem + 7.81vw, 3.438rem);
+  padding-inline: clamp(2.813rem, 14.06vw, 5.625rem);
+  padding-bottom: clamp(4.688rem, 1.25rem + 17.19vw, 8.125rem);
+  background-color: rgb(255, 255, 255);
+}
+
+.location::after {
+  content: '';
+  width: 45%;
+  border-bottom: 1px solid black;
+  margin-top: clamp(2.188rem, 10.94vw, 4.375rem);
+}
+
+.location_title {
+  font-family: 'Saint Viet';
+  font-size: clamp(4.375rem, 0.938rem + 17.19vw, 7.813rem);
+  font-weight: lighter;
+  line-height: 1;
+  margin-top: clamp(0.625rem, -0.938rem + 7.81vw, 2.188rem);
+}
+
+.location_text {
+  font-size: clamp(1.25rem, 0.125rem + 5.63vw, 2.375rem);
+}
+
+.location_place {
+  font-size: clamp(1.5rem, 0.5rem + 5vw, 2.5rem);
+  font-weight: bold;
+}
+
+.location_adress {
+  font-size: clamp(0.938rem, 0.125rem + 4.06vw, 1.75rem);
+}
+
+.location_link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  width: 100%;
+  height: clamp(2.813rem, -0.313rem + 15.63vw, 5.938rem);
+  border: clamp(0.125rem, 0.63vw, 0.25rem) solid #000000;
+  border-radius: clamp(0.313rem, 1.56vw, 0.625rem);
+  font-size: clamp(0.75rem, -0.063rem + 4.06vw, 1.563rem);
+  font-weight: bold;
+}
+
+.location_image {
+  width: 120%;
+  height: auto;
+  border-radius: clamp(1.875rem, 9.38vw, 3.75rem);
+}
+
+.timing {
+  background-image: linear-gradient(to bottom, rgba(255, 255, 255), rgba(239, 234, 227));
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: clamp(1.563rem, -1.563rem + 15.63vw, 4.688rem);
+  padding-inline: clamp(1.25rem, 6.25vw, 2.5rem);
+  padding-bottom: clamp(4.688rem, 1.25rem + 17.19vw, 8.125rem);
+}
+
+.timing::after {
+  content: '';
+  width: 37%;
+  border-bottom: 1px solid black;
+  margin-top: clamp(4.375rem, 2.5rem + 9.38vw, 6.25rem);
+}
+
+.timing_title {
+  font-family: 'Saint Viet';
+  font-size: clamp(4.375rem, 0.938rem + 17.19vw, 7.813rem);
+  font-weight: lighter;
+  line-height: 1;
+  margin-top: clamp(0.625rem, -0.938rem + 7.81vw, 2.188rem);
+  margin-left: 25px;
+}
+
+.image_timing {
+  width: 100%;
+  height: 100%;
+  border: clamp(0.125rem, 0.63vw, 0.25rem) solid #ffffff;
+  border-radius: clamp(1.875rem, 0.313rem + 7.81vw, 3.438rem);
+  opacity: 0;
+  animation: fadeIn 1s linear forwards;
+}
+
+.timing_time {
+  font-size: clamp(1.125rem, 5.63vw, 2.25rem);
+  margin-bottom: clamp(0.313rem, 1.56vw, 0.625rem);
+}
+
+.timing_text {
+ font-size: clamp(0.813rem, 4.06vw, 1.625rem);
+}
+
+.timing_block {
+  display: grid;
+  grid-template-columns: 1fr 3fr 1fr;
+  row-gap: clamp(0.938rem, 0.313rem + 3.13vw, 1.563rem);
+  font-family: 'Circe Rounded';
+}
+
+.timing_block > li {
+  opacity: 0; 
+  animation-duration: 1s; 
+  animation-fill-mode: both; 
+}
+
+.timing_block > li.fadeIn {
+  animation-name: fadeIn; 
+}
+
+.meeting {
+  grid-column: span 2;
+}
+
+.meeting_time {
+  grid-column: span 2;
+  text-align: center;
+}
+
+.arrow_first {
+  width: 45%;
+  grid-row: 2;
+  grid-column: 3;
+  justify-self: end;
+  align-self: center;
+}
+
+.ceremony {
+  grid-column: 2 / span 2;
+}
+
+.ceremony_time {
+  grid-column: 2 / span 2;
+  text-align: center;
+}
+
+.arrow_third {
+  width: 45%;
+  grid-row: 4;
+  grid-column: 1;
+  justify-self: end;
+  align-self: center;
+}
+
+.banquet {
+  grid-column: span 2;
+}
+
+.banquet_time {
+  grid-column: span 2;
+  text-align: center;
+}
+
+.arrow_fourth {
+  width: 45%;
+  grid-row: 6;
+  grid-column: 3;
+  justify-self: end;
+  align-self: center;
+}
+
+.cake {
+  grid-column: 2 / span 2;
+}
+
+.cake_time {
+  grid-column: 2 / span 2;
+  text-align: center;
+}
+
+.arrow_fifth {
+  width: 45%;
+  grid-row: 8;
+  grid-column: 1;
+  justify-self: end;
+  align-self: center;
+}
+
+.end {
+  grid-column: span 2;
+}
+
+.end_time {
+  grid-column: span 2;
+  text-align: center;
+}
+
+.details {
+  font-family: 'Circe Rounded';
+  background-image: linear-gradient(to bottom,rgba(239,234,227,1),rgba(239,234,227,0.3));
+  display: flex;
+  gap: clamp(1.25rem, 6.25vw, 2.5rem);
+  flex-direction: column;
+  align-items: center;
+  padding-inline: clamp(2.813rem, 14.06vw, 5.625rem);
+  padding-bottom: clamp(4.688rem, 1.25rem + 17.19vw, 8.125rem);
+}
+
+.details::after {
+  content: '';
+  width: 45%;
+  border-bottom: 1px solid black;
+  margin-top: clamp(2.063rem, 10.31vw, 4.125rem);
+}
+
+.details_title {
+  font-family: 'Saint Viet';
+  font-size: clamp(4.375rem, 0.938rem + 17.19vw, 7.813rem);
+  font-weight: lighter;
+  line-height: 1;
+  margin-top: clamp(0.625rem, -0.938rem + 7.81vw, 2.188rem);
+}
+
+.details_subtitle {
+  font-size: clamp(1.313rem, 6.56vw, 2.625rem);
+  margin-bottom: clamp(1.063rem, 5.31vw, 2.125rem);
+}
+
+.details_text {
+  font-size: clamp(1rem, 5vw, 2rem);
+  text-align: center;
+}
+
+.group {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(239,234,227,0.3);
+  font-family: 'Circe Rounded';
+  padding-inline: clamp(2.813rem, 14.06vw, 5.625rem);
+  padding-bottom: clamp(4.688rem, 1.25rem + 17.19vw, 8.125rem);
+}
+
+.group::after {
+  content: '';
+  width: 45%;
+  border-bottom: 1px solid black;
+  margin-top: clamp(4.25rem, 21.25vw, 8.5rem);
+}
+
+.group_title {
+  text-align: center;
+  font-size: clamp(1.563rem, 7.81vw, 3.125rem);
+}
+
+.text_decoration {
+  font-family: 'Saint Viet';
+  font-size: clamp(4rem, 20vw, 8rem);
+  text-transform: none;
+  font-weight: lighter;
+}
+
+.group_text {
+  font-size: clamp(1rem, 5vw, 2rem);
+  text-align: center;
+  padding-bottom: clamp(0.75rem, 3.75vw, 1.5rem);
+}
+
+.group_link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: clamp(1.5rem, 7.5vw, 3rem);
+  text-decoration: none;
+  width: 85%;
+  height: clamp(2.813rem, -0.313rem + 15.63vw, 5.938rem);
+  border: clamp(0.125rem, 0.63vw, 0.25rem) solid #000000;
+  border-radius: clamp(0.313rem, 1.56vw, 0.625rem);
+  font-size: clamp(0.75rem, -0.063rem + 4.06vw, 1.563rem);
+  font-weight: bold;
+}
+
+.countdown-timer {
+  display: flex;
+  align-items: center;
+}
+
+.timer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(1.25rem, 6.25vw, 2.5rem);
+  padding-inline: clamp(2.813rem, 14.06vw, 5.625rem);
+  padding-bottom: clamp(4.688rem, 1.25rem + 17.19vw, 8.125rem);
+  background-color: rgba(239, 234, 227, 0.3);
+}
+
+.timer::after {
+  content: '';
+  width: 45%;
+  border-bottom: 1px solid black;
+  margin-top: clamp(4.25rem, 21.25vw, 8.5rem);
+}
+
+.timer_title {
+  font-family: 'Saint Viet';
+  font-weight: lighter;
+  font-size: clamp(3.25rem, 16.25vw, 6.5rem);
+  line-height: 1;
+  margin-top: clamp(0.625rem, -0.938rem + 7.81vw, 2.188rem);
+}
+
+.timer_subtitle {
+  font-family: 'Circe Rounded';
+  font-weight: lighter;
+  font-size: clamp(1.375rem, 6.88vw, 2.75rem);
+  letter-spacing: clamp(0.063rem, 0.31vw, 0.125rem);
+}
+
+.timer_block {
+  display: flex;
+  justify-content: center;
+}
+
+.timer_segment {
+  display: flex;
+  flex-direction: column;
+}
+
+.timer_value {
+  font-family: 'Lora Variable';
+  font-size: clamp(2rem, 10vw, 4rem);
+  line-height: 1;
+}
+
+.timer_value:not(.not_border)::after {
+  content: '';
+  width: 100%;
+  border-right: clamp(0.125rem, 0.063rem + 0.31vw, 0.188rem) solid black;
+  margin-inline: clamp(0.625rem, 3.13vw, 1.25rem);
+}
+
+.timer_label {
+  font-family: 'Circe Rounded';
+  text-align: end;
+  font-size: clamp(0.625rem, 3.13vw, 1.25rem);
+  line-height: 1;
+}
+
+.timer_label:not(.not_margin) {
+  margin-right: clamp(1.375rem, 6.88vw, 2.75rem);
+}
+
+.waiting_for {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding-bottom: clamp(1.5rem, 7.5vw, 3rem);
+  gap: clamp(1.563rem, 7.81vw, 3.125rem);
+  background-color: rgba(239, 234, 227, 0.3);
+}
+
+.waiting_title {
+  font-family: 'Saint Viet';
+  font-weight: lighter;
+  font-size: clamp(3.25rem, 16.25vw, 6.5rem);
+  line-height: 1;
+  margin-top: clamp(2.938rem, 14.69vw, 5.875rem);
+}
+
+.waiting_text {
+  font-family: 'Circe Rounded';
+  font-size: clamp(1.375rem, 6.88vw, 2.75rem);
+  text-align: center;
+}
