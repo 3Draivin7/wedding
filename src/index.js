@@ -1,5 +1,7 @@
 import "./styles/index.css";
 
+
+
 document.addEventListener('DOMContentLoaded', () => {
     const splashContent = document.querySelector('.splash_content');
     const content = document.querySelector('.content');
@@ -53,25 +55,26 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
 
-
     openInviteButton.addEventListener('click', () => {
-        closeIcon.style.opacity = 0;
+        setTimeout(() => { // Небольшая задержка
+            closeIcon.style.opacity = 0;
 
-        if (audio) {
-            fadeIn(audio, fadeDuration);
-            isPlaying = true;
-            songIcon.style.display = 'block';
-            muteIcon.style.display = 'none';
-        } else {
-            console.error("Не удалось найти элемент audio!");
-        }
+            if (audio) {
+                fadeIn(audio, fadeDuration);
+                isPlaying = true;
+                songIcon.style.display = 'block';
+                muteIcon.style.display = 'none';
+            } else {
+                console.error("Не удалось найти элемент audio!");
+            }
 
-        splashContent.classList.add('hidden');
+            splashContent.classList.add('hidden');
 
-        setTimeout(() => {
-            splashContent.style.display = 'none';
-            content.style.display = 'block';
-        }, 1000);
+            setTimeout(() => {
+                splashContent.style.display = 'none';
+                content.style.display = 'block';
+            }, 1000);
+        }, 50); // 50ms задержка
     });
 
     if (playPauseButton && audio && songIcon && muteIcon) {
@@ -122,39 +125,49 @@ document.addEventListener('DOMContentLoaded', function() {
 
     });
 
-    const images = document.querySelectorAll('.circle_image');
+  const images = document.querySelectorAll('.circle_image');
+   const imageStates = {};
 
-    const imageStates = {};
-    images.forEach(image => {
-        imageStates[image.outerHTML] = { appeared: false }; 
-    });
+   images.forEach(image => {
+       const id = image.dataset.imageId; // Получите атрибут data-image-id
+       if (id) {
+           imageStates[id] = { appeared: false };
+       } else {
+           console.warn("Изображение без data-image-id:", image);
+       }
+   });
 
-    function checkImagePosition() {
-        images.forEach(image => {
-            const imageState = imageStates[image.outerHTML];
+   function checkImagePosition() {
+       images.forEach(image => {
+           const id = image.dataset.imageId;
+           if (!id) return;
 
-            if (imageState.appeared) {
-                return;
-            }
+           const imageState = imageStates[id];
 
-            const rect = image.getBoundingClientRect();
-            const windowHeight = (window.innerHeight || document.documentElement.clientHeight);
+           if (!imageState) {
+               console.warn("Не найдено состояние для изображения с data-image-id:", id);
+               return;
+           }
 
-            const distanceToCenter = Math.abs((rect.top + rect.height / 2) - (windowHeight / 2));
+           if (imageState.appeared) {
+               return;
+           }
 
-            // Задаем порог (в пикселях) для определения "центра" экрана
-            const threshold = 100; // Можно настроить
+           const rect = image.getBoundingClientRect();
+           const windowHeight = (window.innerHeight || document.documentElement.clientHeight);
+           const distanceToCenter = Math.abs((rect.top + rect.height / 2) - (windowHeight / 2));
+           const threshold = 100;
 
-            if (distanceToCenter < threshold) {
-                image.classList.add('appearance');
-                imageState.appeared = true;
-            }
-        });
+           if (distanceToCenter < threshold) {
+               image.classList.add('appearance');
+               imageState.appeared = true;
+           }
+       });
 
-        requestAnimationFrame(checkImagePosition);
-    }
+       requestAnimationFrame(checkImagePosition);
+   }
 
-    checkImagePosition();
+   checkImagePosition();
 
     const timingItems = document.querySelectorAll('.timing_block > li');
 

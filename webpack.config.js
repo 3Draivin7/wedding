@@ -2,6 +2,7 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin'); 
+const { IgnorePlugin } = require('webpack');
 
 module.exports = {
   entry: { main: './src/index.js' },
@@ -39,8 +40,8 @@ module.exports = {
             loader: 'file-loader',
             options: {
               name: '[name].[ext]',
-              outputPath: 'videos',
-              publicPath: '/videos/', // Возможно, не нужен, если publicPath настроен в output
+              outputPath: 'video',
+              publicPath: '/video/', // Возможно, не нужен, если publicPath настроен в output
             },
           },
         ],
